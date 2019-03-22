@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 
-
+dotenv.config();
 
 const app = express();
 // Load the variables in .env file to the process.env
@@ -25,4 +26,4 @@ app.use((err, req, res, next) => {
     next(err);
 });
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
