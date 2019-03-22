@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+var cors = require('cors')
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ const app = express();
 
 // Configure Middlewares
 app.use(bodyParser.json());
-
+app.use(cors())
 // Configure Routes
 app.use('/', require('./routes/index'));
 app.use('/sensor', require('./routes/sensor/index'))
